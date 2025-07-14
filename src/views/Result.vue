@@ -11,30 +11,34 @@
 
                 <!-- 特质分析 -->
                 <div class="card">
-                    <h3>您的核心特质</h3>
+                    <h3>{{ $t('result.coreTraits') }}</h3>
                     <div class="traits-grid">
                         <div class="trait-item">
-                            <div class="trait-label">能量来源</div>
+                            <div class="trait-label">{{ $t('result.dimensions.energySource') }}</div>
                             <div class="trait-value">
-                                {{ resultType.code[0] === 'E' ? '外向 (Extraversion)' : '内向 (Introversion)' }}
+                                {{ resultType.code[0] === 'E' ? $t('result.dimensions.extroversion') :
+                                    $t('result.dimensions.introversion') }}
                             </div>
                         </div>
                         <div class="trait-item">
-                            <div class="trait-label">信息收集</div>
+                            <div class="trait-label">{{ $t('result.dimensions.informationGathering') }}</div>
                             <div class="trait-value">
-                                {{ resultType.code[1] === 'S' ? '实感 (Sensing)' : '直觉 (Intuition)' }}
+                                {{ resultType.code[1] === 'S' ? $t('result.dimensions.sensing') :
+                                    $t('result.dimensions.intuition') }}
                             </div>
                         </div>
                         <div class="trait-item">
-                            <div class="trait-label">决策方式</div>
+                            <div class="trait-label">{{ $t('result.dimensions.decisionMaking') }}</div>
                             <div class="trait-value">
-                                {{ resultType.code[2] === 'T' ? '思考 (Thinking)' : '情感 (Feeling)' }}
+                                {{ resultType.code[2] === 'T' ? $t('result.dimensions.thinking') :
+                                    $t('result.dimensions.feeling') }}
                             </div>
                         </div>
                         <div class="trait-item">
-                            <div class="trait-label">生活方式</div>
+                            <div class="trait-label">{{ $t('result.dimensions.lifestyle') }}</div>
                             <div class="trait-value">
-                                {{ resultType.code[3] === 'J' ? '判断 (Judging)' : '感知 (Perceiving)' }}
+                                {{ resultType.code[3] === 'J' ? $t('result.dimensions.judging') :
+                                    $t('result.dimensions.perceiving') }}
                             </div>
                         </div>
                     </div>
@@ -42,7 +46,7 @@
 
                 <!-- 优势特点 -->
                 <div class="card">
-                    <h3>您的优势特点</h3>
+                    <h3>{{ $t('result.strengths') }}</h3>
                     <div class="strengths-list">
                         <div v-for="strength in resultType.strengths" :key="strength" class="strength-item">
                             <div class="strength-icon">✨</div>
@@ -53,7 +57,7 @@
 
                 <!-- 需要注意的地方 -->
                 <div class="card">
-                    <h3>需要注意的地方</h3>
+                    <h3>{{ $t('result.weaknesses') }}</h3>
                     <div class="weaknesses-list">
                         <div v-for="weakness in resultType.weaknesses" :key="weakness" class="weakness-item">
                             <div class="weakness-icon">⚠️</div>
@@ -64,7 +68,7 @@
 
                 <!-- 适合的职业 -->
                 <div class="card">
-                    <h3>适合的职业发展方向</h3>
+                    <h3>{{ $t('result.careers') }}</h3>
                     <div class="careers-grid">
                         <div v-for="career in resultType.careers" :key="career" class="career-item">
                             {{ career }}
@@ -74,7 +78,7 @@
 
                 <!-- 著名人物 -->
                 <div class="card">
-                    <h3>同类型的著名人物</h3>
+                    <h3>{{ $t('result.famousPeople') }}</h3>
                     <div class="famous-people">
                         <div v-for="person in resultType.famousPeople" :key="person" class="person-item">
                             <div class="person-icon">👤</div>
@@ -85,7 +89,7 @@
 
                 <!-- 兼容性类型 -->
                 <div class="card">
-                    <h3>最佳搭档类型</h3>
+                    <h3>{{ $t('result.compatibleTypes') }}</h3>
                     <div class="compatible-types">
                         <div v-for="type in resultType.compatibleTypes" :key="type" class="compatible-type">
                             {{ type }}
@@ -96,13 +100,13 @@
                 <!-- 操作按钮 -->
                 <div class="result-actions">
                     <button @click="retakeTest" class="btn btn-outline">
-                        重新测试
+                        {{ $t('result.retakeTest') }}
                     </button>
                     <button @click="shareResult" class="btn btn-primary">
-                        分享结果
+                        {{ $t('result.shareResult') }}
                     </button>
                     <router-link to="/" class="btn btn-secondary">
-                        返回首页
+                        {{ $t('result.backToHome') }}
                     </router-link>
                 </div>
             </div>
@@ -110,7 +114,7 @@
             <!-- 加载状态 -->
             <div v-else class="loading">
                 <div class="spinner"></div>
-                <p>正在生成您的性格分析报告...</p>
+                <p>{{ $t('result.loading') }}</p>
             </div>
         </div>
     </div>
@@ -119,9 +123,12 @@
 <script lang="ts" setup>
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { useMbtiStore } from '@/stores/mbtiStore'
 
 const router = useRouter()
+const i18n = useI18n()
+const { t } = i18n
 const mbtiStore = useMbtiStore()
 
 const resultType = computed(() => mbtiStore.resultType)
@@ -133,20 +140,24 @@ const retakeTest = () => {
 
 const shareResult = () => {
     if (resultType.value) {
-        const shareText = `我的MBTI性格类型是 ${resultType.value.code} - ${resultType.value.name}！${resultType.value.description}`
+        const shareText = `${t('result.shareText', {
+            code: resultType.value.code,
+            name: resultType.value.name,
+            description: resultType.value.description
+        })}`
 
         if (navigator.share) {
             navigator.share({
-                title: 'MBTI性格测试结果',
+                title: t('result.shareTitle'),
                 text: shareText,
                 url: window.location.href
             })
         } else {
             // 复制到剪贴板
             navigator.clipboard.writeText(shareText).then(() => {
-                alert('结果已复制到剪贴板！')
+                alert(t('result.copySuccess'))
             }).catch(() => {
-                alert('分享功能暂不可用')
+                alert(t('result.shareUnavailable'))
             })
         }
     }

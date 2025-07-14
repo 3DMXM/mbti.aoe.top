@@ -6,15 +6,15 @@
                 <div class="progress-bar" :style="{ width: progress + '%' }"></div>
             </div>
             <div class="progress-text">
-                问题 {{ currentQuestionIndex + 1 }} / {{ totalQuestions }}
+                {{ $t('test.question') }} {{ currentQuestionIndex + 1 }} {{ $t('test.of') }} {{ totalQuestions }}
             </div>
 
             <!-- 测试完成 -->
             <div v-if="isTestCompleted" class="completion-screen">
                 <div class="card text-center">
                     <div class="completion-icon">🎉</div>
-                    <h2>测试完成！</h2>
-                    <p>正在分析您的答案，即将为您生成专属的性格分析报告...</p>
+                    <h2>{{ $t('test.completion.title') }}</h2>
+                    <p>{{ $t('test.completion.description') }}</p>
                     <div class="loading">
                         <div class="spinner"></div>
                     </div>
@@ -24,11 +24,11 @@
             <!-- 问题卡片 -->
             <div v-else-if="currentQuestion" class="question-card">
                 <div class="question-number">
-                    第 {{ currentQuestionIndex + 1 }} 题
+                    {{ $t('test.question') }} {{ currentQuestionIndex + 1 }}
                 </div>
 
                 <div class="question-text">
-                    {{ currentQuestion.text }}
+                    {{ currentQuestion?.text || '加载中...' }}
                 </div>
 
                 <div class="options">
@@ -41,11 +41,11 @@
 
                 <div class="question-actions">
                     <button class="btn btn-outline" @click="goBack" :disabled="currentQuestionIndex === 0">
-                        ← 上一题
+                        {{ $t('test.actions.previous') }}
                     </button>
 
                     <div class="question-hint">
-                        点击选项自动进入下一题
+                        {{ $t('test.actions.hint') }}
                     </div>
                 </div>
             </div>
@@ -61,23 +61,26 @@
 <script lang="ts" setup>
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { useMbtiStore } from '@/stores/mbtiStore'
 
 const router = useRouter()
 const mbtiStore = useMbtiStore()
+const i18n = useI18n()
+const { t } = i18n
 
 const selectedAnswer = ref<number | null>(null)
 
-// 选项数据
-const options = [
-    { text: '很不符合', value: 1 },
-    { text: '不符合', value: 2 },
-    { text: '较少符合', value: 3 },
-    { text: '中性', value: 4 },
-    { text: '较多符合', value: 5 },
-    { text: '符合', value: 6 },
-    { text: '很符合', value: 7 }
-]
+// 选项数据 - 使用多语言
+const options = computed(() => [
+    { text: t('test.options.veryDisagree'), value: 1 },
+    { text: t('test.options.disagree'), value: 2 },
+    { text: t('test.options.slightlyDisagree'), value: 3 },
+    { text: t('test.options.neutral'), value: 4 },
+    { text: t('test.options.slightlyAgree'), value: 5 },
+    { text: t('test.options.agree'), value: 6 },
+    { text: t('test.options.veryAgree'), value: 7 }
+])
 
 // 计算属性
 const currentQuestion = computed(() => mbtiStore.currentQuestion)
@@ -124,6 +127,10 @@ watch(isTestCompleted, (completed) => {
 
 // 页面初始化
 onMounted(() => {
+    // 初始化问题结构
+    console.log('🚀 Initializing questions in Test.vue')
+    mbtiStore.initializeQuestions()
+
     // 如果已有答案，恢复选择状态
     const existingAnswer = mbtiStore.answers[currentQuestionIndex.value]
     if (existingAnswer) {

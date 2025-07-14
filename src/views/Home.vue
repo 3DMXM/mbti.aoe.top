@@ -3,31 +3,30 @@
         <div class="hero-section">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">发现真实的自己</h1>
+                    <h1 class="hero-title">{{ $t('home.subtitle') }}</h1>
                     <p class="hero-subtitle">
-                        通过专业的 MBTI 性格测试，深入了解您的性格类型、优势特点和发展方向。
-                        采用7点精细量表，60道深度问题，一键式快速答题体验。
+                        {{ $t('home.description') }}
                     </p>
                     <div class="hero-features">
                         <div class="feature-item">
                             <div class="feature-icon">🧠</div>
-                            <div class="feature-text">科学专业</div>
+                            <div class="feature-text">{{ $t('home.features.professional.title') }}</div>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">⚡</div>
-                            <div class="feature-text">快速准确</div>
+                            <div class="feature-text">{{ $t('home.features.accurate.title') }}</div>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">🎯</div>
-                            <div class="feature-text">个性化分析</div>
+                            <div class="feature-text">{{ $t('home.features.detailed.title') }}</div>
                         </div>
                     </div>
                     <div class="hero-actions">
                         <router-link to="/test" class="btn btn-primary btn-large">
-                            开始测试
+                            {{ $t('home.startButton') }}
                         </router-link>
                         <router-link to="/about" class="btn btn-outline">
-                            了解更多
+                            {{ $t('nav.about') }}
                         </router-link>
                     </div>
                 </div>

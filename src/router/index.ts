@@ -5,7 +5,7 @@ import Result from '@/views/Result.vue'
 import About from '@/views/About.vue'
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/',

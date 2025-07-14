@@ -1,5 +1,50 @@
 import type { MBTIType } from '@/types'
+import { useI18n } from 'vue-i18n'
 
+// MBTI类型代码数组
+const mbtiTypeCodes = [
+    'INTJ', 'INTP', 'ENTJ', 'ENTP', 'INFJ', 'INFP', 'ENFJ', 'ENFP',
+    'ISTJ', 'ISFJ', 'ESTJ', 'ESFJ', 'ISTP', 'ISFP', 'ESTP', 'ESFP'
+]
+
+// 获取国际化的MBTI类型数组
+export function getMBTITypes(): MBTIType[] {
+    const { t } = useI18n()
+    const typesData = t('mbtiTypes') as unknown as Record<string, any>
+
+    return mbtiTypeCodes.map(code => ({
+        code,
+        name: typesData[code]?.name || code,
+        description: typesData[code]?.description || '',
+        strengths: typesData[code]?.strengths || [],
+        weaknesses: typesData[code]?.weaknesses || [],
+        careers: typesData[code]?.careers || [],
+        famousPeople: typesData[code]?.famousPeople || [],
+        compatibleTypes: typesData[code]?.compatibleTypes || []
+    }))
+}
+
+// 获取单个MBTI类型
+export function getMBTIType(code: string): MBTIType | null {
+    const { t } = useI18n()
+    const typesData = t('mbtiTypes') as unknown as Record<string, any>
+    const typeData = typesData[code]
+
+    if (!typeData) return null
+
+    return {
+        code,
+        name: typeData.name || code,
+        description: typeData.description || '',
+        strengths: typeData.strengths || [],
+        weaknesses: typeData.weaknesses || [],
+        careers: typeData.careers || [],
+        famousPeople: typeData.famousPeople || [],
+        compatibleTypes: typeData.compatibleTypes || []
+    }
+}
+
+// 兼容性导出 - 默认中文数据
 export const mbtiTypes: MBTIType[] = [
     {
         code: 'INTJ',

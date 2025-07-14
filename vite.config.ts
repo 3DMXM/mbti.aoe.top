@@ -12,5 +12,19 @@ export default defineConfig({
     server: {
         port: 3000,
         open: true
+    },
+    base: process.env.NODE_ENV === 'production' ? '/MBTI.aoe.top/' : '/',
+    build: {
+        outDir: 'dist',
+        assetsDir: 'assets',
+        sourcemap: false,
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    vendor: ['vue', 'vue-router', 'pinia'],
+                    i18n: ['vue-i18n']
+                }
+            }
+        }
     }
 })

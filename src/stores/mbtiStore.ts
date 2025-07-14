@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { questions } from '@/data/questions'
-import { mbtiTypes } from '@/data/mbtiTypes'
-import type { Question, MBTIType, Answer } from '@/types'
+import { mbtiTypes, getMBTIType } from '@/data/mbtiTypes'
+import type { Question, Answer } from '@/types'
 
 export const useMbtiStore = defineStore('mbti', () => {
     // 状态
@@ -10,18 +10,37 @@ export const useMbtiStore = defineStore('mbti', () => {
     const answers = ref<Answer[]>([])
     const result = ref<string | null>(null)
     const isTestCompleted = ref(false)
+    const currentQuestions = ref<Question[]>(questions) // 默认使用静态数据
+
+    // 初始化问题 - 直接使用静态中文问题
+    const initializeQuestions = () => {
+        console.log('🔍 Using static Chinese questions')
+        currentQuestions.value = questions // 直接使用已有的中文问题数组
+        console.log('✅ Questions initialized, count:', currentQuestions.value.length)
+        console.log('📝 First question:', currentQuestions.value[0]?.text?.substring(0, 20) + '...')
+    }
 
     // 计算属性
     const currentQuestion = computed<Question | null>(() => {
-        return questions[currentQuestionIndex.value] || null
+        return currentQuestions.value[currentQuestionIndex.value] || null
     })
 
     const progress = computed(() => {
-        return (currentQuestionIndex.value / questions.length) * 100
+        return (currentQuestionIndex.value / currentQuestions.value.length) * 100
     })
 
     const resultType = computed(() => {
         if (!result.value) return null
+
+        try {
+            // 尝试获取国际化的类型数据
+            const type = getMBTIType(result.value)
+            if (type) return type
+        } catch (error) {
+            console.warn('Failed to get internationalized type, using default:', error)
+        }
+
+        // 回退到静态数据
         return mbtiTypes.find(type => type.code === result.value) || null
     })
 
@@ -34,7 +53,7 @@ export const useMbtiStore = defineStore('mbti', () => {
         }
 
         // 如果是最后一个问题，计算结果
-        if (currentQuestionIndex.value === questions.length - 1) {
+        if (currentQuestionIndex.value === currentQuestions.value.length - 1) {
             calculateResult()
             isTestCompleted.value = true
         } else {
@@ -70,7 +89,7 @@ export const useMbtiStore = defineStore('mbti', () => {
 
     const calculateDimensionScore = (dimension: string, polarity: number) => {
         return answers.value.reduce((score, answer) => {
-            const question = questions.find(q => q.id === answer.questionId)
+            const question = currentQuestions.value.find(q => q.id === answer.questionId)
             if (question && question.dimension === dimension && question.polarity === polarity) {
                 return score + answer.value
             }
@@ -83,6 +102,8 @@ export const useMbtiStore = defineStore('mbti', () => {
         answers.value = []
         result.value = null
         isTestCompleted.value = false
+        // 重新初始化问题
+        initializeQuestions()
     }
 
     return {
@@ -94,6 +115,7 @@ export const useMbtiStore = defineStore('mbti', () => {
         progress,
         resultType,
         answerQuestion,
-        resetTest
+        resetTest,
+        initializeQuestions
     }
 })

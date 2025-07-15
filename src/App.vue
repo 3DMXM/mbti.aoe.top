@@ -2,7 +2,7 @@
   <div class="app-wrapper">
     <nav class="nav">
       <div class="container nav-content">
-        <router-link to="/" class="nav-brand">MBTI测试</router-link>
+        <router-link :to="getLocalizedRoute('home')" class="nav-brand">MBTI测试</router-link>
 
         <!-- 移动端汉堡菜单按钮 -->
         <button class="mobile-menu-btn" @click="toggleMobileMenu" :class="{ active: isMobileMenuOpen }">
@@ -14,11 +14,11 @@
         <!-- 导航链接 -->
         <div class="nav-links" :class="{ 'mobile-open': isMobileMenuOpen }">
           <router-link :to="getLocalizedRoute('home')" class="nav-link" @click="closeMobileMenu">{{ $t('nav.home')
-            }}</router-link>
+          }}</router-link>
           <router-link :to="getLocalizedRoute('test')" class="nav-link" @click="closeMobileMenu">{{ $t('nav.test')
-            }}</router-link>
+          }}</router-link>
           <router-link :to="getLocalizedRoute('about')" class="nav-link" @click="closeMobileMenu">{{ $t('nav.about')
-            }}</router-link>
+          }}</router-link>
 
           <!-- 语言切换器 -->
           <div class="language-switcher" ref="languageSwitcher">

@@ -65,39 +65,47 @@ const router = createRouter({
         {
             path: '/about',
             redirect: '/zh/about'
-        },
-        // 404页面重定向
-        {
-            path: '/:pathMatch(.*)*',
-            redirect: (to) => {
-                // 避免无限重定向
-                if (to.path.includes('~and~') || to.path.includes('?/&/~')) {
-                    return '/zh'
-                }
-                // 如果路径已经是语言路径，重定向到对应的首页
-                const pathSegments = to.path.split('/').filter(Boolean)
-                if (pathSegments.length > 0 && supportedLanguages.includes(pathSegments[0])) {
-                    return `/${pathSegments[0]}`
-                }
-                return '/zh'
-            }
         }
+        // 移除通用的404重定向，改在路由守卫中处理
     ]
 })
 
 // 路由守卫：根据路由设置语言
-router.beforeEach((to, _from, next) => {
+router.beforeEach((to, from, next) => {
     // 检测无限重定向循环
     if (to.path.includes('~and~') || to.path.includes('?/&/~')) {
         next('/zh')
         return
     }
 
-    // 如果是根路径且在生产环境中，确保正确重定向
-    if (to.path === '/' && import.meta.env.PROD) {
-        const browserLang = navigator.language.slice(0, 2)
-        const defaultLang = supportedLanguages.includes(browserLang) ? browserLang : 'zh'
-        next(`/${defaultLang}`)
+    // 防止重复重定向 - 检测 /zh -> /zh/zh 这种循环
+    if (from.path && to.path) {
+        const fromSegments = from.path.split('/').filter(Boolean)
+        const toSegments = to.path.split('/').filter(Boolean)
+
+        // 检查是否从语言首页重定向到同样的语言首页（但路径变长了）
+        if (fromSegments.length === 1 &&
+            toSegments.length === 2 &&
+            fromSegments[0] === toSegments[0] &&
+            fromSegments[0] === toSegments[1] &&
+            supportedLanguages.includes(fromSegments[0])) {
+            next(false) // 阻止这次导航
+            return
+        }
+    }
+
+    // 处理404情况 - 如果路由不匹配且不是已知路由
+    if (to.matched.length === 0) {
+        const pathSegments = to.path.split('/').filter(Boolean)
+
+        // 如果路径以语言代码开头，重定向到对应语言首页
+        if (pathSegments.length > 0 && supportedLanguages.includes(pathSegments[0])) {
+            next(`/${pathSegments[0]}`)
+            return
+        }
+
+        // 其他情况重定向到中文首页
+        next('/zh')
         return
     }
 

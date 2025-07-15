@@ -78,6 +78,9 @@ router.beforeEach((to, from, next) => {
         return
     }
 
+    console.log(to, from);
+
+
     // 防止重复重定向 - 检测 /zh -> /zh/zh 这种循环
     if (from.path && to.path) {
         const fromSegments = from.path.split('/').filter(Boolean)

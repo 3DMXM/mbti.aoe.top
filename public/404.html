@@ -20,27 +20,27 @@
     // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
     // This way the code will only replace the route part and not the real folder.
     // Otherwise, leave pathSegmentsToKeep as 0.
-    var pathSegmentsToKeep = 1;
+    // var pathSegmentsToKeep = 1;
 
-    var l = window.location;
-    var path = l.pathname.slice(1);
-    var segments = path.split('/').slice(pathSegmentsToKeep);
+    // var l = window.location;
+    // var path = l.pathname.slice(1);
+    // var segments = path.split('/').slice(pathSegmentsToKeep);
     
-    // 支持的语言列表
-    var supportedLanguages = ['zh', 'en', 'ja', 'fr', 'de', 'es'];
+    // // 支持的语言列表
+    // var supportedLanguages = ['zh', 'en', 'ja', 'fr', 'de', 'es'];
     
-    // 检查路径是否已经包含语言前缀
-    if (segments.length > 0 && supportedLanguages.includes(segments[0])) {
-      // 直接重定向到正确的路径，不使用查询字符串转换
-      var newPath = '/' + segments.join('/');
-      if (newPath === '/') newPath = '/zh';
-      l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
-                l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + newPath + l.search + l.hash);
-    } else {
-      // 对于其他路径，重定向到中文首页
-      l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
-                l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/zh' + l.search + l.hash);
-    }
+    // // 检查路径是否已经包含语言前缀
+    // if (segments.length > 0 && supportedLanguages.includes(segments[0])) {
+    //   // 直接重定向到正确的路径，不使用查询字符串转换
+    //   var newPath = '/' + segments.join('/');
+    //   if (newPath === '/') newPath = '/zh';
+    //   l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
+    //             l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + newPath + l.search + l.hash);
+    // } else {
+    //   // 对于其他路径，重定向到中文首页
+    //   l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
+    //             l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/zh' + l.search + l.hash);
+    // }
   </script>
 </head>
 <body>

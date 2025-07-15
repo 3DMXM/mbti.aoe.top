@@ -69,13 +69,38 @@ const router = createRouter({
         // 404页面重定向
         {
             path: '/:pathMatch(.*)*',
-            redirect: '/zh'
+            redirect: (to) => {
+                // 避免无限重定向
+                if (to.path.includes('~and~') || to.path.includes('?/&/~')) {
+                    return '/zh'
+                }
+                // 如果路径已经是语言路径，重定向到对应的首页
+                const pathSegments = to.path.split('/').filter(Boolean)
+                if (pathSegments.length > 0 && supportedLanguages.includes(pathSegments[0])) {
+                    return `/${pathSegments[0]}`
+                }
+                return '/zh'
+            }
         }
     ]
 })
 
 // 路由守卫：根据路由设置语言
 router.beforeEach((to, _from, next) => {
+    // 检测无限重定向循环
+    if (to.path.includes('~and~') || to.path.includes('?/&/~')) {
+        next('/zh')
+        return
+    }
+
+    // 如果是根路径且在生产环境中，确保正确重定向
+    if (to.path === '/' && import.meta.env.PROD) {
+        const browserLang = navigator.language.slice(0, 2)
+        const defaultLang = supportedLanguages.includes(browserLang) ? browserLang : 'zh'
+        next(`/${defaultLang}`)
+        return
+    }
+
     if (to.meta?.lang) {
         // 设置语言到localStorage
         localStorage.setItem('mbti-locale', to.meta.lang as string)

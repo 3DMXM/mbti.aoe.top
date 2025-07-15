@@ -55,24 +55,31 @@
     
     <!-- Start Single Page Apps for GitHub Pages -->
     <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      // This script checks to see if a redirect is present in the query string,
-      // converts it back into the correct url and adds it to the
-      // browser's history using window.history.replaceState(...),
-      // which won't cause the browser to attempt to load the new url.
-      // When the single page app is loaded further down in this file,
-      // the correct url will be waiting in the browser's history for
-      // the single page app to route accordingly.
+      // Enhanced Single Page Apps for GitHub Pages with multilingual support
+      // Modified from: https://github.com/rafgraph/spa-github-pages
       (function(l) {
+        var supportedLanguages = ['zh', 'en', 'ja', 'fr', 'de', 'es'];
+        
         if (l.search[1] === '/' ) {
           var decoded = l.search.slice(1).split('&').map(function(s) { 
             return s.replace(/~and~/g, '&')
           }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
+          
+          // Extract the path from the decoded string
+          var pathMatch = decoded.match(/^\/(.*)$/);
+          if (pathMatch) {
+            var path = pathMatch[1];
+            var segments = path.split('/').filter(function(s) { return s.length > 0; });
+            
+            // If path doesn't start with a language code, redirect to Chinese
+            if (segments.length === 0 || !supportedLanguages.includes(segments[0])) {
+              var newPath = '/zh' + (segments.length > 0 ? '/' + segments.join('/') : '');
+              window.history.replaceState(null, null, l.pathname.slice(0, -1) + newPath + l.hash);
+            } else {
+              // Path already has language code, use as is
+              window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+            }
+          }
         }
       }(window.location))
     </script>

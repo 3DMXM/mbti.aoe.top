@@ -83,18 +83,24 @@ export function useSEO() {
             document.head.appendChild(link)
         })
 
-        // 添加x-default链接
+        // 添加x-default链接（默认指向英文版本）
+        const defaultPath = routeName === 'home' ? '' : '/' + routeName
         const defaultLink = document.createElement('link')
         defaultLink.rel = 'alternate'
         defaultLink.hreflang = 'x-default'
-        defaultLink.href = `${window.location.origin}/en${routeName === 'home' ? '' : '/' + routeName}`
+        defaultLink.href = `${window.location.origin}/en${defaultPath}`
         document.head.appendChild(defaultLink)
     }
 
     // 监听路由和语言变化
-    watch([() => route.name, locale], ([routeName, language]) => {
-        if (routeName && language) {
-            updateSEO(language, routeName.toString().toLowerCase())
+    watch([() => route.meta?.page, () => route.meta?.lang, locale], ([routePage, routeLang, currentLocale]) => {
+        // 优先使用路由中的语言信息，然后是i18n的locale
+        const language = (routeLang as string) || currentLocale
+        const pageName = (routePage as string) || 'home'
+
+        if (language && pageName) {
+            console.log('SEO update:', { language, pageName, route: route.name })
+            updateSEO(language, pageName)
         }
     }, { immediate: true })
 

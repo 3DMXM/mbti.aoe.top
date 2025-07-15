@@ -86,7 +86,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { useSEO } from '@/composables/useSEO'
@@ -219,6 +219,14 @@ onMounted(() => {
     locale.value = route.meta.lang as string
   }
 })
+
+// 监听路由变化，同步语言设置
+watch(() => route.meta?.lang, (newLang) => {
+  if (newLang && newLang !== locale.value) {
+    console.log('Route language changed:', newLang)
+    locale.value = newLang as string
+  }
+}, { immediate: true })
 
 onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside)

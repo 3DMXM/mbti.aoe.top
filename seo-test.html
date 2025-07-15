@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SEO Test Page</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background: #f0f0f0;
+            }
+            .test-section {
+                background: white;
+                padding: 20px;
+                margin: 10px 0;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .meta-info {
+                background: #f8f9fa;
+                padding: 10px;
+                margin: 5px 0;
+                border-radius: 4px;
+                font-family: monospace;
+                word-break: break-all;
+            }
+            .button {
+                display: inline-block;
+                padding: 10px 20px;
+                margin: 5px;
+                background: #007bff;
+                color: white;
+                text-decoration: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .button:hover {
+                background: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>MBTI 网站 SEO 测试页面</h1>
+
+        <div class="test-section">
+            <h2>当前页面SEO信息</h2>
+            <div id="current-seo"></div>
+            <button class="button" onclick="updateSEOInfo()">
+                刷新SEO信息
+            </button>
+        </div>
+
+        <div class="test-section">
+            <h2>测试不同语言版本</h2>
+            <a href="http://localhost:3003/zh" class="button">中文首页</a>
+            <a href="http://localhost:3003/en" class="button">英文首页</a>
+            <a href="http://localhost:3003/ja" class="button">日文首页</a>
+            <a href="http://localhost:3003/zh/test" class="button"
+                >中文测试页</a
+            >
+            <a href="http://localhost:3003/en/test" class="button"
+                >英文测试页</a
+            >
+            <a href="http://localhost:3003/zh/about" class="button"
+                >中文关于页</a
+            >
+            <a href="http://localhost:3003/en/about" class="button"
+                >英文关于页</a
+            >
+        </div>
+
+        <div class="test-section">
+            <h2>检查事项</h2>
+            <ul>
+                <li>页面标题是否跟随语言切换</li>
+                <li>meta description 是否正确更新</li>
+                <li>meta keywords 是否对应当前语言</li>
+                <li>Open Graph 标签是否正确</li>
+                <li>hreflang 链接是否包含所有语言版本</li>
+                <li>HTML lang 属性是否正确设置</li>
+            </ul>
+        </div>
+
+        <script>
+            function updateSEOInfo() {
+                const seoInfo = document.getElementById("current-seo");
+                seoInfo.innerHTML = "";
+
+                // 获取标题
+                const title = document.title;
+                seoInfo.innerHTML += `<div class="meta-info"><strong>Title:</strong> ${title}</div>`;
+
+                // 获取meta标签
+                const metas = [
+                    "description",
+                    "keywords",
+                    "og:title",
+                    "og:description",
+                    "og:image",
+                    "og:url",
+                    "twitter:title",
+                    "twitter:description",
+                ];
+
+                metas.forEach((name) => {
+                    const meta = document.querySelector(
+                        `meta[name="${name}"], meta[property="${name}"]`
+                    );
+                    if (meta) {
+                        seoInfo.innerHTML += `<div class="meta-info"><strong>${name}:</strong> ${meta.content}</div>`;
+                    } else {
+                        seoInfo.innerHTML += `<div class="meta-info"><strong>${name}:</strong> <em>未找到</em></div>`;
+                    }
+                });
+
+                // 获取语言属性
+                const htmlLang = document.documentElement.lang;
+                seoInfo.innerHTML += `<div class="meta-info"><strong>HTML Lang:</strong> ${htmlLang}</div>`;
+
+                // 获取hreflang链接
+                const hreflangs = document.querySelectorAll("link[hreflang]");
+                if (hreflangs.length > 0) {
+                    seoInfo.innerHTML += `<div class="meta-info"><strong>Hreflang Links:</strong></div>`;
+                    hreflangs.forEach((link) => {
+                        seoInfo.innerHTML += `<div class="meta-info">  ${link.hreflang}: ${link.href}</div>`;
+                    });
+                } else {
+                    seoInfo.innerHTML += `<div class="meta-info"><strong>Hreflang Links:</strong> <em>未找到</em></div>`;
+                }
+            }
+
+            // 页面加载时自动更新
+            window.onload = updateSEOInfo;
+
+            // 监听页面变化（如果在iframe中）
+            if (window.parent !== window) {
+                setInterval(updateSEOInfo, 2000);
+            }
+        </script>
+    </body>
+</html>

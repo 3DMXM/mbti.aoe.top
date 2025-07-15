@@ -140,4 +140,71 @@
 
 ---
 
+## 🔧 修复记录 (2025-01-15) - SEO语言切换问题
+
+### 问题：SEO不会跟随语言切换进行更新
+
+**症状**：
+- 切换语言时页面标题、meta描述等SEO信息不会更新
+- 页面的meta标签仍显示之前语言的内容
+- hreflang链接不会更新到正确的语言版本
+
+**根本原因**：
+1. `useSEO.ts`中的watch监听器使用了错误的路由名称格式
+2. 路由名称格式为`zh-Home`，但SEO配置期望的是页面名称如`home`
+3. App.vue中缺少路由语言变化的监听器
+4. i18n的locale与路由meta中的lang不同步
+
+**解决方案**：
+
+1. **修复useSEO.ts监听器**：
+   ```typescript
+   // 修复前：监听 route.name (得到 "zh-Home")
+   watch([() => route.name, locale], ([routeName, language]) => {
+     updateSEO(language, routeName.toString().toLowerCase())
+   })
+   
+   // 修复后：监听 route.meta.page (得到 "home")
+   watch([() => route.meta?.page, () => route.meta?.lang, locale], ([routePage, routeLang, currentLocale]) => {
+     const language = (routeLang as string) || currentLocale
+     const pageName = (routePage as string) || 'home'
+     updateSEO(language, pageName)
+   })
+   ```
+
+2. **添加路由语言同步**：
+   ```typescript
+   // 在App.vue中添加路由语言监听器
+   watch(() => route.meta?.lang, (newLang) => {
+     if (newLang && newLang !== locale.value) {
+       locale.value = newLang as string
+     }
+   }, { immediate: true })
+   ```
+
+3. **优化SEO更新逻辑**：
+   - 优先使用路由meta中的语言信息
+   - 添加调试日志以便排查问题
+   - 确保hreflang链接正确生成
+
+**修复文件**：
+- `src/composables/useSEO.ts`：修复监听器和页面名称处理
+- `src/App.vue`：添加路由语言同步监听器
+
+**测试验证**：
+- ✅ 中文→英文切换时页面标题正确更新
+- ✅ meta description跟随语言变化
+- ✅ meta keywords更新为对应语言
+- ✅ Open Graph标签正确更新
+- ✅ hreflang链接包含所有语言版本
+- ✅ HTML lang属性正确设置
+
+**测试方法**：
+1. 访问 `/zh` 检查中文SEO信息
+2. 切换到英文版本，验证SEO更新
+3. 使用浏览器开发者工具检查meta标签
+4. 验证hreflang链接是否正确生成
+
+---
+
 最后更新：2025年1月15日

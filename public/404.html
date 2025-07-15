@@ -1,48 +1,62 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>MBTI 性格测试</title>
-  <script type="text/javascript">
-    // Single Page Apps for GitHub Pages
-    // MIT License
-    // https://github.com/rafgraph/spa-github-pages
-    // This script takes the current url and converts the path and query
-    // string into just a query string, and then redirects the browser
-    // to the new url with only a query string and hash fragment,
-    // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
-    // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
-    // Note: this 404.html file must be at least 512 bytes for it to work
-    // with Internet Explorer (it is currently > 512 bytes)
-
-    // If you're creating a Project Pages site and NOT using a custom domain,
-    // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
-    // This way the code will only replace the route part and not the real folder.
-    // Otherwise, leave pathSegmentsToKeep as 0.
-    // var pathSegmentsToKeep = 1;
-
-    // var l = window.location;
-    // var path = l.pathname.slice(1);
-    // var segments = path.split('/').slice(pathSegmentsToKeep);
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/mbti-icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="MBTI Test Team" />
+    <meta name="theme-color" content="#4c51bf" />
     
-    // // 支持的语言列表
-    // var supportedLanguages = ['zh', 'en', 'ja', 'fr', 'de', 'es'];
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    // // 检查路径是否已经包含语言前缀
-    // if (segments.length > 0 && supportedLanguages.includes(segments[0])) {
-    //   // 直接重定向到正确的路径，不使用查询字符串转换
-    //   var newPath = '/' + segments.join('/');
-    //   if (newPath === '/') newPath = '/zh';
-    //   l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
-    //             l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + newPath + l.search + l.hash);
-    // } else {
-    //   // 对于其他路径，重定向到中文首页
-    //   l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
-    //             l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/zh' + l.search + l.hash);
-    // }
-  </script>
-</head>
-<body>
-</body>
+    <!-- Default SEO (will be updated by JavaScript) -->
+    <title>MBTI性格测试 - 免费在线心理测评工具</title>
+    <meta name="description" content="专业的MBTI性格测试，深入了解您的性格类型、优势特点和发展方向。基于心理学理论，提供科学准确的性格分析报告。" />
+    <meta name="keywords" content="MBTI测试,性格测试,心理测试,性格分析,MBTI性格类型,免费测试,在线测试" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MBTI Personality Test" />
+    <meta property="og:title" content="MBTI性格测试 - 发现真实的自己" />
+    <meta property="og:description" content="通过专业的MBTI性格测试，深入了解您的性格类型、优势特点和发展方向" />
+    <meta property="og:image" content="/og-image-zh.jpg" />
+    <meta property="og:url" content="https://mbti.aoe.top" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MBTI性格测试 - 发现真实的自己" />
+    <meta name="twitter:description" content="通过专业的MBTI性格测试，深入了解您的性格类型、优势特点和发展方向" />
+    <meta name="twitter:image" content="/og-image-zh.jpg" />
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "MBTI Personality Test",
+      "applicationCategory": "HealthApplication",
+      "description": "Professional MBTI personality test to understand your personality type, strengths, and development directions",
+      "url": "https://mbti.aoe.top",
+      "author": {
+        "@type": "Organization",
+        "name": "MBTI Test Team"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "inLanguage": ["zh-CN", "en-US", "ja-JP", "fr-FR", "de-DE", "es-ES"]
+    }
+    </script>
+    
+    <!-- End Single Page Apps for GitHub Pages -->
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>

@@ -73,29 +73,36 @@ const router = createRouter({
 // 路由守卫：根据路由设置语言
 router.beforeEach((to, from, next) => {
     // 检测无限重定向循环
-    if (to.path.includes('~and~') || to.path.includes('?/&/~')) {
-        next('/zh')
+    // if (to.path.includes('~and~') || to.path.includes('?/&/~')) {
+    //     next('/zh')
+    //     return
+    // }
+
+    // 判断 from.path 是否包含 supportedLanguages 中的内容    
+    if (from.path && supportedLanguages.some(lang => from.path.startsWith(`/${lang}`))) {
+        // 如果是从语言首页跳转，直接使用 to.path
+        next()
         return
     }
 
-    console.log(to, from);
+    // console.log(to, from);
 
 
-    // 防止重复重定向 - 检测 /zh -> /zh/zh 这种循环
-    if (from.path && to.path) {
-        const fromSegments = from.path.split('/').filter(Boolean)
-        const toSegments = to.path.split('/').filter(Boolean)
+    // // 防止重复重定向 - 检测 /zh -> /zh/zh 这种循环
+    // if (from.path && to.path) {
+    //     const fromSegments = from.path.split('/').filter(Boolean)
+    //     const toSegments = to.path.split('/').filter(Boolean)
 
-        // 检查是否从语言首页重定向到同样的语言首页（但路径变长了）
-        if (fromSegments.length === 1 &&
-            toSegments.length === 2 &&
-            fromSegments[0] === toSegments[0] &&
-            fromSegments[0] === toSegments[1] &&
-            supportedLanguages.includes(fromSegments[0])) {
-            next(false) // 阻止这次导航
-            return
-        }
-    }
+    //     // 检查是否从语言首页重定向到同样的语言首页（但路径变长了）
+    //     if (fromSegments.length === 1 &&
+    //         toSegments.length === 2 &&
+    //         fromSegments[0] === toSegments[0] &&
+    //         fromSegments[0] === toSegments[1] &&
+    //         supportedLanguages.includes(fromSegments[0])) {
+    //         next(false) // 阻止这次导航
+    //         return
+    //     }
+    // }
 
     // 处理404情况 - 如果路由不匹配且不是已知路由
     if (to.matched.length === 0) {

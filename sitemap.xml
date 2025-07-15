@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <!-- Chinese (Default) -->
+    <url>
+        <loc>https://mbti.aoe.top/zh</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mbti.aoe.top/en" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://mbti.aoe.top/ja" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://mbti.aoe.top/fr" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://mbti.aoe.top/de" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://mbti.aoe.top/es" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://mbti.aoe.top/en" />
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/zh/test</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mbti.aoe.top/en/test" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://mbti.aoe.top/ja/test" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://mbti.aoe.top/fr/test" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://mbti.aoe.top/de/test" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://mbti.aoe.top/es/test" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://mbti.aoe.top/en/test" />
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/zh/about</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mbti.aoe.top/en/about" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://mbti.aoe.top/ja/about" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://mbti.aoe.top/fr/about" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://mbti.aoe.top/de/about" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://mbti.aoe.top/es/about" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://mbti.aoe.top/en/about" />
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/zh/result</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mbti.aoe.top/en/result" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://mbti.aoe.top/ja/result" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://mbti.aoe.top/fr/result" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://mbti.aoe.top/de/result" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://mbti.aoe.top/es/result" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://mbti.aoe.top/en/result" />
+    </url>
+
+    <!-- English -->
+    <url>
+        <loc>https://mbti.aoe.top/en</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://mbti.aoe.top/zh" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://mbti.aoe.top/ja" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://mbti.aoe.top/fr" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://mbti.aoe.top/de" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://mbti.aoe.top/es" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://mbti.aoe.top/en" />
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/en/test</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://mbti.aoe.top/zh/test" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://mbti.aoe.top/ja/test" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://mbti.aoe.top/fr/test" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://mbti.aoe.top/de/test" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://mbti.aoe.top/es/test" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://mbti.aoe.top/en/test" />
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/en/about</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://mbti.aoe.top/zh/about" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://mbti.aoe.top/ja/about" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://mbti.aoe.top/fr/about" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://mbti.aoe.top/de/about" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://mbti.aoe.top/es/about" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://mbti.aoe.top/en/about" />
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/en/result</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://mbti.aoe.top/zh/result" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://mbti.aoe.top/ja/result" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://mbti.aoe.top/fr/result" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://mbti.aoe.top/de/result" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://mbti.aoe.top/es/result" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://mbti.aoe.top/en/result" />
+    </url>
+
+    <!-- Japanese -->
+    <url>
+        <loc>https://mbti.aoe.top/ja</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://mbti.aoe.top/zh" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://mbti.aoe.top/en" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://mbti.aoe.top/fr" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://mbti.aoe.top/de" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://mbti.aoe.top/es" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://mbti.aoe.top/en" />
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/ja/test</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/ja/about</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/ja/result</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- French -->
+    <url>
+        <loc>https://mbti.aoe.top/fr</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/fr/test</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/fr/about</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/fr/result</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- German -->
+    <url>
+        <loc>https://mbti.aoe.top/de</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/de/test</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/de/about</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/de/result</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Spanish -->
+    <url>
+        <loc>https://mbti.aoe.top/es</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/es/test</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/es/about</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://mbti.aoe.top/es/result</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+</urlset>

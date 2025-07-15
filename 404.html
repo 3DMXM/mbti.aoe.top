@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>MBTI 性格测试</title>
+  <script type="text/javascript">
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // https://github.com/rafgraph/spa-github-pages
+    // This script takes the current url and converts the path and query
+    // string into just a query string, and then redirects the browser
+    // to the new url with only a query string and hash fragment,
+    // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
+    // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
+    // Note: this 404.html file must be at least 512 bytes for it to work
+    // with Internet Explorer (it is currently > 512 bytes)
+
+    // If you're creating a Project Pages site and NOT using a custom domain,
+    // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
+    // This way the code will only replace the route part and not the real folder.
+    // Otherwise, leave pathSegmentsToKeep as 0.
+    var pathSegmentsToKeep = 1;
+
+    var l = window.location;
+    var path = l.pathname.slice(1);
+    var segments = path.split('/').slice(pathSegmentsToKeep);
+    
+    // 支持的语言列表
+    var supportedLanguages = ['zh', 'en', 'ja', 'fr', 'de', 'es'];
+    
+    // 检查路径是否已经包含语言前缀
+    if (segments.length > 0 && supportedLanguages.includes(segments[0])) {
+      // 直接重定向到正确的路径，不使用查询字符串转换
+      var newPath = '/' + segments.join('/');
+      if (newPath === '/') newPath = '/zh';
+      l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
+                l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + newPath + l.search + l.hash);
+    } else {
+      // 对于其他路径，重定向到中文首页
+      l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
+                l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/zh' + l.search + l.hash);
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>

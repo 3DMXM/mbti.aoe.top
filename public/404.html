@@ -4,14 +4,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <title>MBTI 性格测试</title>
+        <meta http-equiv="refresh" content="0; URL='/'" />
         <script>
-            (function () {
-                const redir = sessionStorage.redirect;
-                delete sessionStorage.redirect;
-                if (redir && redir !== location.href) {
-                    history.replaceState(null, null, redir);
-                }
-            })();
+            sessionStorage.redirect = location.href;
         </script>
     </head>
     <body></body>

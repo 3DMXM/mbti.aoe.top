@@ -1,6 +1,16 @@
-# MBTI 性格测试网站
+# MBTI 性格测试网站部署指南
 
-一个基于 Vue 3 + TypeScript + Vite 构建的 MBTI 性格测试网站，支持中英文双语。
+一个基于 Vue 3 + TypeScript + Vite 构建的多语言 MBTI 性格测试网站，支持6种语言和完整的SEO优化。
+
+## 🌍 多语言支持
+
+网站支持以下语言版本：
+- 中文 (zh): `/zh/*`
+- 英文 (en): `/en/*` 
+- 日文 (ja): `/ja/*`
+- 法文 (fr): `/fr/*`
+- 德文 (de): `/de/*`
+- 西班牙文 (es): `/es/*`
 
 ## 🚀 GitHub Pages 部署
 

@@ -23,20 +23,90 @@ export default {
         title: 'Test de Personalidad MBTI',
         subtitle: 'Conócete a ti mismo y descubre tu potencial',
         description: 'MBTI es uno de los sistemas de clasificación de personalidad más autoritativos del mundo. Al responder algunas preguntas simples, puedes descubrir tu tipo de personalidad y características.',
-        startTest: 'Comenzar test',
+        startButton: 'Comenzar test',
         features: {
+            professional: {
+                title: 'Profesional y Confiable',
+                description: 'Basado en la teoría MBTI con 60 preguntas de prueba cuidadosamente diseñadas'
+            },
             accurate: {
-                title: 'Análisis preciso',
-                description: 'Análisis preciso de tu personalidad basado en la teoría MBTI científicamente fundamentada'
+                title: 'Análisis Preciso',
+                description: 'Sistema de puntuación de 7 puntos para una evaluación de personalidad más precisa'
             },
-            comprehensive: {
-                title: 'Informe completo',
-                description: 'Informe detallado de análisis de personalidad para entender tus fortalezas y puntos de crecimiento'
-            },
-            practical: {
-                title: 'Consejos prácticos',
-                description: 'Proporciona consejos prácticos para diversas áreas de la vida como carrera, relaciones y aprendizaje'
+            detailed: {
+                title: 'Informe Detallado',
+                description: 'Análisis completo de 16 tipos de personalidad con características y sugerencias de desarrollo'
             }
+        },
+        infoSection: {
+            title: '¿Qué es MBTI?',
+            subtitle: 'El Indicador de Tipos Myers-Briggs es una de las herramientas de evaluación de personalidad más populares del mundo',
+            cards: {
+                selfAwareness: {
+                    title: 'Autoconocimiento Profundo',
+                    description: 'Te ayudamos a comprender más profundamente tus rasgos de personalidad, patrones de pensamiento y estilos de comportamiento para descubrir tu verdadero yo.'
+                },
+                careerGuidance: {
+                    title: 'Orientación Profesional',
+                    description: 'Basado en tu tipo de personalidad, recomendamos las mejores direcciones de carrera y rutas de desarrollo para apoyarte en el camino al éxito.'
+                },
+                relationships: {
+                    title: 'Mejora de Relaciones',
+                    description: 'Comprende las características de diferentes tipos de personalidad para mejorar tus relaciones con familia, amigos y colegas, y construir relaciones más armoniosas.'
+                },
+                personalGrowth: {
+                    title: 'Crecimiento Personal',
+                    description: 'Reconoce tus fortalezas y áreas de mejora para crear un plan de desarrollo personal más específico.'
+                }
+            }
+        },
+        typesPreview: {
+            title: '16 Tipos de Personalidad',
+            subtitle: 'Cada persona posee una combinación única de rasgos de personalidad. Explora para encontrar el tuyo',
+            categories: {
+                analysts: {
+                    title: 'Analistas (NT)',
+                    types: {
+                        intj: 'Arquitecto',
+                        intp: 'Pensador',
+                        entj: 'Comandante',
+                        entp: 'Innovador'
+                    }
+                },
+                diplomats: {
+                    title: 'Diplomáticos (NF)',
+                    types: {
+                        infj: 'Abogado',
+                        infp: 'Mediador',
+                        enfj: 'Protagonista',
+                        enfp: 'Activista'
+                    }
+                },
+                sentinels: {
+                    title: 'Centinelas (SJ)',
+                    types: {
+                        istj: 'Logístico',
+                        isfj: 'Defensor',
+                        estj: 'Ejecutivo',
+                        esfj: 'Cónsul'
+                    }
+                },
+                explorers: {
+                    title: 'Exploradores (SP)',
+                    types: {
+                        istp: 'Virtuoso',
+                        isfp: 'Aventurero',
+                        estp: 'Emprendedor',
+                        esfp: 'Animador'
+                    }
+                }
+            }
+        },
+        cta: {
+            title: 'Comienza Tu Viaje MBTI',
+            subtitle: 'Descubre tu tipo de personalidad y libera tu potencial',
+            startButton: 'Comenzar Test Ahora',
+            learnMore: 'Saber Más'
         }
     },
 
@@ -46,14 +116,23 @@ export default {
         progress: 'Progreso',
         question: 'Pregunta',
         of: 'de',
-        stronglyDisagree: 'Muy en desacuerdo',
-        disagree: 'En desacuerdo',
-        neutral: 'Neutral',
-        agree: 'De acuerdo',
-        stronglyAgree: 'Muy de acuerdo',
-        previous: 'Anterior',
-        next: 'Siguiente',
-        submit: 'Ver resultados'
+        completion: {
+            title: '¡Test completado!',
+            description: 'Analizando sus respuestas, generando su informe de análisis de personalidad personalizado...'
+        },
+        options: {
+            veryDisagree: 'Muy en desacuerdo',
+            disagree: 'En desacuerdo',
+            slightlyDisagree: 'Algo en desacuerdo',
+            neutral: 'Neutral',
+            slightlyAgree: 'Algo de acuerdo',
+            agree: 'De acuerdo',
+            veryAgree: 'Muy de acuerdo'
+        },
+        actions: {
+            previous: '← Pregunta anterior',
+            hint: 'Haga clic en una opción para pasar automáticamente a la siguiente pregunta'
+        }
     },
 
     // Página de resultados
@@ -177,7 +256,7 @@ export default {
     // Común
     common: {
         loading: 'Cargando...',
-        copyright: 'Conocerse a uno mismo, descubrir el potencial'
+        copyright: 'Conócete a ti mismo, libera tu potencial'
     },
 
     // Preguntas del test

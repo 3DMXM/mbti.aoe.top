@@ -27,6 +27,76 @@ export default {
                 title: '详细报告',
                 description: '16种性格类型详细解析，了解性格特征和发展建议'
             }
+        },
+        infoSection: {
+            title: '什么是 MBTI？',
+            subtitle: 'Myers-Briggs 类型指标是世界上最受欢迎的性格评估工具之一',
+            cards: {
+                selfAwareness: {
+                    title: '深度自我认知',
+                    description: '帮助您更深入地了解自己的性格特点、思维方式和行为模式，发现内在的真实自我。'
+                },
+                careerGuidance: {
+                    title: '职业发展指导',
+                    description: '基于您的性格类型，为您推荐最适合的职业方向和发展路径，助力事业成功。'
+                },
+                relationships: {
+                    title: '改善人际关系',
+                    description: '了解不同性格类型的特点，改善与家人、朋友、同事的关系，建立更和谐的人际网络。'
+                },
+                personalGrowth: {
+                    title: '个人成长',
+                    description: '认识自己的优势和待改进的地方，制定更有针对性的个人发展计划。'
+                }
+            }
+        },
+        typesPreview: {
+            title: '16 种性格类型',
+            subtitle: '每个人都拥有独特的性格组合，探索属于您的那一种',
+            categories: {
+                analysts: {
+                    title: '分析家 (NT)',
+                    types: {
+                        intj: '建筑师',
+                        intp: '思想家',
+                        entj: '指挥官',
+                        entp: '辩论家'
+                    }
+                },
+                diplomats: {
+                    title: '外交家 (NF)',
+                    types: {
+                        infj: '提倡者',
+                        infp: '调停者',
+                        enfj: '主人公',
+                        enfp: '竞选者'
+                    }
+                },
+                sentinels: {
+                    title: '守护者 (SJ)',
+                    types: {
+                        istj: '物流师',
+                        isfj: '守护者',
+                        estj: '总经理',
+                        esfj: '执政官'
+                    }
+                },
+                explorers: {
+                    title: '探险家 (SP)',
+                    types: {
+                        istp: '鉴赏家',
+                        isfp: '探险家',
+                        estp: '企业家',
+                        esfp: '娱乐家'
+                    }
+                }
+            }
+        },
+        cta: {
+            title: '开始您的 MBTI 之旅',
+            subtitle: '发现您的性格类型，解锁个人潜能',
+            startButton: '立即开始测试',
+            learnMore: '了解更多'
         }
     },
 

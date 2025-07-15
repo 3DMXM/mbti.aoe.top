@@ -23,20 +23,90 @@ export default {
         title: 'Test de Personnalité MBTI',
         subtitle: 'Comprenez-vous et découvrez votre potentiel',
         description: 'MBTI est l\'un des systèmes de classification de personnalité les plus autoritaires au monde. En répondant à quelques questions simples, vous pouvez découvrir votre type de personnalité et vos caractéristiques.',
-        startTest: 'Commencer le test',
+        startButton: 'Commencer le test',
         features: {
+            professional: {
+                title: 'Professionnel et Fiable',
+                description: 'Basé sur la théorie MBTI avec 60 questions de test soigneusement conçues'
+            },
             accurate: {
-                title: 'Analyse précise',
-                description: 'Analyse précise de votre personnalité basée sur la théorie MBTI scientifiquement fondée'
+                title: 'Analyse Précise',
+                description: 'Système de notation à 7 points pour une évaluation de personnalité plus précise'
             },
-            comprehensive: {
-                title: 'Rapport complet',
-                description: 'Rapport d\'analyse de personnalité détaillé pour comprendre vos forces et vos points de croissance'
-            },
-            practical: {
-                title: 'Conseils pratiques',
-                description: 'Fournit des conseils pratiques pour diverses sphères de la vie comme la carrière, les relations et l\'apprentissage'
+            detailed: {
+                title: 'Rapport Détaillé',
+                description: 'Analyse complète des 16 types de personnalité avec caractéristiques et suggestions de développement'
             }
+        },
+        infoSection: {
+            title: 'Qu\'est-ce que le MBTI ?',
+            subtitle: 'Le Myers-Briggs Type Indicator est l\'un des outils d\'évaluation de personnalité les plus populaires au monde',
+            cards: {
+                selfAwareness: {
+                    title: 'Connaissance de Soi Approfondie',
+                    description: 'Nous vous aidons à comprendre plus profondément vos traits de personnalité, vos modèles de pensée et vos styles comportementaux pour découvrir votre vrai moi.'
+                },
+                careerGuidance: {
+                    title: 'Orientation Professionnelle',
+                    description: 'Basé sur votre type de personnalité, nous recommandons les meilleures directions de carrière et parcours de développement pour vous soutenir sur la voie du succès.'
+                },
+                relationships: {
+                    title: 'Amélioration des Relations',
+                    description: 'Comprenez les caractéristiques de différents types de personnalité pour améliorer vos relations avec la famille, les amis et les collègues, et construire des relations plus harmonieuses.'
+                },
+                personalGrowth: {
+                    title: 'Croissance Personnelle',
+                    description: 'Reconnaissez vos forces et domaines d\'amélioration pour élaborer un plan de développement personnel plus ciblé.'
+                }
+            }
+        },
+        typesPreview: {
+            title: '16 Types de Personnalité',
+            subtitle: 'Chacun possède une combinaison unique de traits de personnalité. Explorez pour trouver le vôtre',
+            categories: {
+                analysts: {
+                    title: 'Analystes (NT)',
+                    types: {
+                        intj: 'Architecte',
+                        intp: 'Penseur',
+                        entj: 'Commandant',
+                        entp: 'Innovateur'
+                    }
+                },
+                diplomats: {
+                    title: 'Diplomates (NF)',
+                    types: {
+                        infj: 'Avocat',
+                        infp: 'Médiateur',
+                        enfj: 'Protagoniste',
+                        enfp: 'Inspirateur'
+                    }
+                },
+                sentinels: {
+                    title: 'Sentinelles (SJ)',
+                    types: {
+                        istj: 'Logisticien',
+                        isfj: 'Défenseur',
+                        estj: 'Directeur',
+                        esfj: 'Consul'
+                    }
+                },
+                explorers: {
+                    title: 'Explorateurs (SP)',
+                    types: {
+                        istp: 'Virtuose',
+                        isfp: 'Aventurier',
+                        estp: 'Entrepreneur',
+                        esfp: 'Amuseur'
+                    }
+                }
+            }
+        },
+        cta: {
+            title: 'Commencez Votre Voyage MBTI',
+            subtitle: 'Découvrez votre type de personnalité et libérez votre potentiel',
+            startButton: 'Commencer le Test Maintenant',
+            learnMore: 'En Savoir Plus'
         }
     },
 
@@ -46,14 +116,23 @@ export default {
         progress: 'Progrès',
         question: 'Question',
         of: 'sur',
-        stronglyDisagree: 'Fortement en désaccord',
-        disagree: 'En désaccord',
-        neutral: 'Neutre',
-        agree: 'D\'accord',
-        stronglyAgree: 'Fortement d\'accord',
-        previous: 'Précédent',
-        next: 'Suivant',
-        submit: 'Voir les résultats'
+        completion: {
+            title: 'Test terminé !',
+            description: 'Analyse de vos réponses en cours, génération de votre rapport d\'analyse de personnalité personnalisé...'
+        },
+        options: {
+            veryDisagree: 'Très en désaccord',
+            disagree: 'En désaccord',
+            slightlyDisagree: 'Plutôt en désaccord',
+            neutral: 'Neutre',
+            slightlyAgree: 'Plutôt d\'accord',
+            agree: 'D\'accord',
+            veryAgree: 'Très d\'accord'
+        },
+        actions: {
+            previous: '← Question précédente',
+            hint: 'Cliquez sur une option pour passer automatiquement à la question suivante'
+        }
     },
 
     // Page de résultats
@@ -177,7 +256,7 @@ export default {
     // Commun
     common: {
         loading: 'Chargement...',
-        copyright: 'Comprendre soi-même, découvrir le potentiel'
+        copyright: 'Connaissez-vous, libérez votre potentiel'
     },
 
     // Questions du test

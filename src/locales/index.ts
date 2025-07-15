@@ -6,18 +6,25 @@ import fr from './fr'
 import de from './de'
 import es from './es'
 
+// 支持的语言列表
+export const supportedLanguages = ['zh', 'en', 'ja', 'fr', 'de', 'es']
+
 // 检测浏览器语言
 const getDefaultLocale = () => {
-    const saved = localStorage.getItem('mbti-locale')
-    if (saved) return saved
+    // 优先从URL路径检测语言
+    const pathLang = window.location.pathname.split('/')[1]
+    if (supportedLanguages.includes(pathLang)) {
+        return pathLang
+    }
 
-    const browserLang = navigator.language.toLowerCase()
-    if (browserLang.startsWith('en')) return 'en'
-    if (browserLang.startsWith('zh')) return 'zh'
-    if (browserLang.startsWith('ja')) return 'ja'
-    if (browserLang.startsWith('fr')) return 'fr'
-    if (browserLang.startsWith('de')) return 'de'
-    if (browserLang.startsWith('es')) return 'es'
+    // 其次从localStorage获取
+    const saved = localStorage.getItem('mbti-locale')
+    if (saved && supportedLanguages.includes(saved)) return saved
+
+    // 最后从浏览器语言检测
+    const browserLang = navigator.language.toLowerCase().slice(0, 2)
+    if (supportedLanguages.includes(browserLang)) return browserLang
+
     return 'zh' // 默认中文
 }
 

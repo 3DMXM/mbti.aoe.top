@@ -27,6 +27,76 @@ export default {
                 title: 'Detailed Report',
                 description: 'Comprehensive analysis of 16 personality types with characteristics and development suggestions'
             }
+        },
+        infoSection: {
+            title: 'What is MBTI?',
+            subtitle: 'Myers-Briggs Type Indicator is one of the world\'s most popular personality assessment tools',
+            cards: {
+                selfAwareness: {
+                    title: 'Deep Self-Awareness',
+                    description: 'Help you gain deeper understanding of your personality traits, thinking patterns, and behavioral styles to discover your authentic self.'
+                },
+                careerGuidance: {
+                    title: 'Career Development Guidance',
+                    description: 'Based on your personality type, recommend the most suitable career directions and development paths to empower your success.'
+                },
+                relationships: {
+                    title: 'Improve Relationships',
+                    description: 'Understand the characteristics of different personality types to improve relationships with family, friends, and colleagues, building a more harmonious interpersonal network.'
+                },
+                personalGrowth: {
+                    title: 'Personal Growth',
+                    description: 'Recognize your strengths and areas for improvement to create more targeted personal development plans.'
+                }
+            }
+        },
+        typesPreview: {
+            title: '16 Personality Types',
+            subtitle: 'Everyone has a unique personality combination, explore yours',
+            categories: {
+                analysts: {
+                    title: 'Analysts (NT)',
+                    types: {
+                        intj: 'Architect',
+                        intp: 'Thinker',
+                        entj: 'Commander',
+                        entp: 'Debater'
+                    }
+                },
+                diplomats: {
+                    title: 'Diplomats (NF)',
+                    types: {
+                        infj: 'Advocate',
+                        infp: 'Mediator',
+                        enfj: 'Protagonist',
+                        enfp: 'Campaigner'
+                    }
+                },
+                sentinels: {
+                    title: 'Sentinels (SJ)',
+                    types: {
+                        istj: 'Logistician',
+                        isfj: 'Defender',
+                        estj: 'Executive',
+                        esfj: 'Consul'
+                    }
+                },
+                explorers: {
+                    title: 'Explorers (SP)',
+                    types: {
+                        istp: 'Virtuoso',
+                        isfp: 'Adventurer',
+                        estp: 'Entrepreneur',
+                        esfp: 'Entertainer'
+                    }
+                }
+            }
+        },
+        cta: {
+            title: 'Start Your MBTI Journey',
+            subtitle: 'Discover your personality type and unlock your potential',
+            startButton: 'Start Test Now',
+            learnMore: 'Learn More'
         }
     },
 
@@ -170,7 +240,7 @@ export default {
     // Common
     common: {
         loading: 'Loading...',
-        copyright: 'Understand Yourself, Discover Potential'
+        copyright: 'Know Yourself, Unlock Your Potential'
     },
 
     // Test questions

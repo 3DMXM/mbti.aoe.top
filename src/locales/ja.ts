@@ -23,20 +23,90 @@ export default {
         title: 'MBTI性格診断',
         subtitle: '自分自身を理解し、潜在能力を発見しましょう',
         description: 'MBTIは世界で最も権威のある性格分類システムの一つです。簡単な質問に答えることで、あなたの性格タイプと特徴を発見できます。',
-        startTest: 'テストを開始',
+        startButton: 'テストを開始',
         features: {
+            professional: {
+                title: '専門的で信頼性',
+                description: 'MBTI理論に基づく60の精心設計されたテスト問題'
+            },
             accurate: {
                 title: '正確な分析',
-                description: '科学的根拠に基づいたMBTI理論で、あなたの性格を正確に分析します'
+                description: '7点スケール評価システムでより正確な性格評価を提供'
             },
-            comprehensive: {
-                title: '包括的なレポート',
-                description: '詳細な性格分析レポートで、あなたの強みと成長点を理解できます'
-            },
-            practical: {
-                title: '実用的なアドバイス',
-                description: 'キャリア、人間関係、学習など、人生の様々な分野での実用的なアドバイスを提供します'
+            detailed: {
+                title: '詳細なレポート',
+                description: '16の性格タイプの詳細分析で性格特徴と発展提案を理解'
             }
+        },
+        infoSection: {
+            title: 'MBTIとは？',
+            subtitle: 'Myers-Briggs Type Indicatorは世界で最も人気のある性格評価ツールの一つです',
+            cards: {
+                selfAwareness: {
+                    title: '深い自己認識',
+                    description: 'あなたの性格特性、思考パターン、行動様式をより深く理解し、本当の自分を発見するお手伝いをします。'
+                },
+                careerGuidance: {
+                    title: 'キャリア開発指導',
+                    description: 'あなたの性格タイプに基づいて、最適なキャリア方向と発展パスを推薦し、成功への道をサポートします。'
+                },
+                relationships: {
+                    title: '人間関係の改善',
+                    description: '異なる性格タイプの特徴を理解し、家族、友人、同僚との関係を改善し、より調和のとれた人間関係を築きます。'
+                },
+                personalGrowth: {
+                    title: '個人の成長',
+                    description: 'あなたの強みと改善すべき点を認識し、より的確な個人発展計画を立てることができます。'
+                }
+            }
+        },
+        typesPreview: {
+            title: '16の性格タイプ',
+            subtitle: '誰もが独特な性格の組み合わせを持っています。あなたのタイプを探してみましょう',
+            categories: {
+                analysts: {
+                    title: '分析家 (NT)',
+                    types: {
+                        intj: '建築家',
+                        intp: '思想家',
+                        entj: '指揮官',
+                        entp: '討論者'
+                    }
+                },
+                diplomats: {
+                    title: '外交官 (NF)',
+                    types: {
+                        infj: '提唱者',
+                        infp: '仲介者',
+                        enfj: '主人公',
+                        enfp: '運動家'
+                    }
+                },
+                sentinels: {
+                    title: '番人 (SJ)',
+                    types: {
+                        istj: '管理者',
+                        isfj: '擁護者',
+                        estj: '幹部',
+                        esfj: '領事'
+                    }
+                },
+                explorers: {
+                    title: '探検家 (SP)',
+                    types: {
+                        istp: '巨匠',
+                        isfp: '冒険家',
+                        estp: '起業家',
+                        esfp: 'エンターテイナー'
+                    }
+                }
+            }
+        },
+        cta: {
+            title: 'MBTIの旅を始めましょう',
+            subtitle: 'あなたの性格タイプを発見し、潜在能力を解き放ちましょう',
+            startButton: '今すぐテストを開始',
+            learnMore: 'もっと詳しく'
         }
     },
 
@@ -46,14 +116,23 @@ export default {
         progress: '進捗',
         question: '質問',
         of: '/',
-        stronglyDisagree: '強く反対',
-        disagree: '反対',
-        neutral: '中立',
-        agree: '賛成',
-        stronglyAgree: '強く賛成',
-        previous: '前へ',
-        next: '次へ',
-        submit: '結果を見る'
+        completion: {
+            title: 'テスト完了！',
+            description: 'あなたの回答を分析中です。専用の性格分析レポートを作成しています...'
+        },
+        options: {
+            veryDisagree: 'とても当てはまらない',
+            disagree: '当てはまらない',
+            slightlyDisagree: 'やや当てはまらない',
+            neutral: '中立',
+            slightlyAgree: 'やや当てはまる',
+            agree: '当てはまる',
+            veryAgree: 'とても当てはまる'
+        },
+        actions: {
+            previous: '← 前の質問',
+            hint: '選択肢をクリックすると自動的に次の質問に進みます'
+        }
     },
 
     // 結果ページ
@@ -177,7 +256,7 @@ export default {
     // 共通
     common: {
         loading: '読み込み中...',
-        copyright: '自分を理解し、潜在能力を発見'
+        copyright: '自分を知り、可能性を引き出す'
     },
 
     // テスト質問

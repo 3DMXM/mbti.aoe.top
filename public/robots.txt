@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mbti.aoe.top/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Disallow unnecessary assets from crawling
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /vite.svg
+Disallow: /dist/
+
+# Allow all language versions
+Allow: /zh/
+Allow: /en/
+Allow: /ja/
+Allow: /fr/
+Allow: /de/
+Allow: /es/

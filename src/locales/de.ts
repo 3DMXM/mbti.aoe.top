@@ -23,20 +23,90 @@ export default {
         title: 'MBTI Persönlichkeitstest',
         subtitle: 'Verstehen Sie sich selbst und entdecken Sie Ihr Potenzial',
         description: 'MBTI ist eines der weltweit autoritativsten Persönlichkeitsklassifikationssysteme. Durch die Beantwortung einiger einfacher Fragen können Sie Ihren Persönlichkeitstyp und Ihre Eigenschaften entdecken.',
-        startTest: 'Test starten',
+        startButton: 'Test starten',
         features: {
+            professional: {
+                title: 'Professionell und Zuverlässig',
+                description: 'Basierend auf der MBTI-Theorie mit 60 sorgfältig gestalteten Testfragen'
+            },
             accurate: {
                 title: 'Präzise Analyse',
-                description: 'Präzise Analyse Ihrer Persönlichkeit basierend auf wissenschaftlich fundierter MBTI-Theorie'
+                description: '7-Punkte-Bewertungssystem für eine genauere Persönlichkeitsbewertung'
             },
-            comprehensive: {
-                title: 'Umfassender Bericht',
-                description: 'Detaillierter Persönlichkeitsanalysebericht, um Ihre Stärken und Wachstumspunkte zu verstehen'
-            },
-            practical: {
-                title: 'Praktische Beratung',
-                description: 'Bietet praktische Beratung für verschiedene Lebensbereiche wie Karriere, Beziehungen und Lernen'
+            detailed: {
+                title: 'Detaillierter Bericht',
+                description: 'Umfassende Analyse von 16 Persönlichkeitstypen mit Eigenschaften und Entwicklungsvorschlägen'
             }
+        },
+        infoSection: {
+            title: 'Was ist MBTI?',
+            subtitle: 'Der Myers-Briggs-Typenindikator ist eines der weltweit beliebtesten Persönlichkeitsbewertungstools',
+            cards: {
+                selfAwareness: {
+                    title: 'Tiefere Selbsterkenntnis',
+                    description: 'Wir helfen Ihnen dabei, Ihre Persönlichkeitsmerkmale, Denkmuster und Verhaltensstile tiefer zu verstehen und Ihr wahres Selbst zu entdecken.'
+                },
+                careerGuidance: {
+                    title: 'Berufliche Orientierung',
+                    description: 'Basierend auf Ihrem Persönlichkeitstyp empfehlen wir die besten Karriererichtungen und Entwicklungspfade, um Sie auf dem Weg zum Erfolg zu unterstützen.'
+                },
+                relationships: {
+                    title: 'Beziehungsverbesserung',
+                    description: 'Verstehen Sie die Eigenschaften verschiedener Persönlichkeitstypen, um Ihre Beziehungen zu Familie, Freunden und Kollegen zu verbessern und harmonischere Beziehungen aufzubauen.'
+                },
+                personalGrowth: {
+                    title: 'Persönliches Wachstum',
+                    description: 'Erkennen Sie Ihre Stärken und Verbesserungsbereiche, um einen gezielteren persönlichen Entwicklungsplan zu erstellen.'
+                }
+            }
+        },
+        typesPreview: {
+            title: '16 Persönlichkeitstypen',
+            subtitle: 'Jeder besitzt eine einzigartige Kombination von Persönlichkeitsmerkmalen. Erkunden Sie, um Ihren zu finden',
+            categories: {
+                analysts: {
+                    title: 'Analysten (NT)',
+                    types: {
+                        intj: 'Architekt',
+                        intp: 'Denker',
+                        entj: 'Kommandeur',
+                        entp: 'Debattierer'
+                    }
+                },
+                diplomats: {
+                    title: 'Diplomaten (NF)',
+                    types: {
+                        infj: 'Anwalt',
+                        infp: 'Vermittler',
+                        enfj: 'Protagonist',
+                        enfp: 'Aktivist'
+                    }
+                },
+                sentinels: {
+                    title: 'Wächter (SJ)',
+                    types: {
+                        istj: 'Logistiker',
+                        isfj: 'Beschützer',
+                        estj: 'Direktor',
+                        esfj: 'Konsul'
+                    }
+                },
+                explorers: {
+                    title: 'Entdecker (SP)',
+                    types: {
+                        istp: 'Virtuose',
+                        isfp: 'Abenteurer',
+                        estp: 'Unternehmer',
+                        esfp: 'Entertainer'
+                    }
+                }
+            }
+        },
+        cta: {
+            title: 'Beginnen Sie Ihre MBTI-Reise',
+            subtitle: 'Entdecken Sie Ihren Persönlichkeitstyp und entfesseln Sie Ihr Potenzial',
+            startButton: 'Test jetzt starten',
+            learnMore: 'Mehr erfahren'
         }
     },
 
@@ -46,14 +116,23 @@ export default {
         progress: 'Fortschritt',
         question: 'Frage',
         of: 'von',
-        stronglyDisagree: 'Stimme überhaupt nicht zu',
-        disagree: 'Stimme nicht zu',
-        neutral: 'Neutral',
-        agree: 'Stimme zu',
-        stronglyAgree: 'Stimme voll zu',
-        previous: 'Zurück',
-        next: 'Weiter',
-        submit: 'Ergebnisse anzeigen'
+        completion: {
+            title: 'Test abgeschlossen!',
+            description: 'Ihre Antworten werden analysiert, Ihr persönlicher Persönlichkeitsanalysebericht wird erstellt...'
+        },
+        options: {
+            veryDisagree: 'Stimme überhaupt nicht zu',
+            disagree: 'Stimme nicht zu',
+            slightlyDisagree: 'Stimme eher nicht zu',
+            neutral: 'Neutral',
+            slightlyAgree: 'Stimme eher zu',
+            agree: 'Stimme zu',
+            veryAgree: 'Stimme voll zu'
+        },
+        actions: {
+            previous: '← Vorherige Frage',
+            hint: 'Klicken Sie auf eine Option, um automatisch zur nächsten Frage zu gelangen'
+        }
     },
 
     // Ergebnisseite
@@ -176,8 +255,8 @@ export default {
 
     // Gemeinsam
     common: {
-        loading: 'Laden...',
-        copyright: 'Sich selbst verstehen, Potenzial entdecken'
+        loading: 'Wird geladen...',
+        copyright: 'Erkenne dich selbst, entfalte dein Potenzial'
     },
 
     // Testfragen

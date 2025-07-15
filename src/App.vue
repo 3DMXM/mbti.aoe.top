@@ -13,9 +13,12 @@
 
         <!-- 导航链接 -->
         <div class="nav-links" :class="{ 'mobile-open': isMobileMenuOpen }">
-          <router-link to="/" class="nav-link" @click="closeMobileMenu">{{ $t('nav.home') }}</router-link>
-          <router-link to="/test" class="nav-link" @click="closeMobileMenu">{{ $t('nav.test') }}</router-link>
-          <router-link to="/about" class="nav-link" @click="closeMobileMenu">{{ $t('nav.about') }}</router-link>
+          <router-link :to="getLocalizedRoute('home')" class="nav-link" @click="closeMobileMenu">{{ $t('nav.home')
+            }}</router-link>
+          <router-link :to="getLocalizedRoute('test')" class="nav-link" @click="closeMobileMenu">{{ $t('nav.test')
+            }}</router-link>
+          <router-link :to="getLocalizedRoute('about')" class="nav-link" @click="closeMobileMenu">{{ $t('nav.about')
+            }}</router-link>
 
           <!-- 语言切换器 -->
           <div class="language-switcher" ref="languageSwitcher">
@@ -85,9 +88,16 @@
 <script lang="ts" setup>
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute, useRouter } from 'vue-router'
+import { useSEO } from '@/composables/useSEO'
 
 const { locale } = useI18n()
+const route = useRoute()
+const router = useRouter()
 const currentYear = computed(() => new Date().getFullYear())
+
+// 初始化SEO
+useSEO()
 
 // 移动端菜单状态
 const isMobileMenuOpen = ref(false)
@@ -111,12 +121,33 @@ const currentLangData = computed(() =>
   availableLanguages.find(lang => lang.code === currentLanguage.value) || availableLanguages[0]
 )
 
-// 切换语言
+// 获取当前页面名称（用于路由）
+const getCurrentPageName = () => {
+  return route.meta?.page as string || 'home'
+}
+
+// 切换语言并更新路由
 const changeLanguage = (lang: string) => {
+  const currentPage = getCurrentPageName()
+  const newRouteName = `${lang}-${currentPage.charAt(0).toUpperCase()}${currentPage.slice(1)}`
+
   locale.value = lang
   localStorage.setItem('mbti-locale', lang)
+
+  // 导航到新的语言路由
+  router.push({ name: newRouteName }).catch(() => {
+    // 如果路由不存在，回退到首页
+    router.push(`/${lang}`)
+  })
+
   isLanguageMenuOpen.value = false
   closeMobileMenu()
+}
+
+// 获取语言特定的路由链接
+const getLocalizedRoute = (page: string) => {
+  const lang = currentLanguage.value
+  return `/${lang}${page === 'home' ? '' : '/' + page}`
 }
 
 // 切换语言菜单
@@ -156,9 +187,8 @@ const handleKeyDown = (event: KeyboardEvent) => {
       nextIndex = currentIndex - 1 < 0 ? availableLanguages.length - 1 : currentIndex - 1
     }
 
-    // 这里我们只是预览，实际选择需要按 Enter
-    const nextLang = availableLanguages[nextIndex]
     // 可以添加高亮预览逻辑
+    console.log('Preview language:', availableLanguages[nextIndex].code)
   }
 
   if (event.key === 'Enter') {
@@ -183,6 +213,11 @@ const closeMobileMenu = () => {
 onMounted(() => {
   document.addEventListener('click', handleClickOutside)
   document.addEventListener('keydown', handleKeyDown)
+
+  // 同步路由语言和i18n语言
+  if (route.meta?.lang && route.meta.lang !== locale.value) {
+    locale.value = route.meta.lang as string
+  }
 })
 
 onUnmounted(() => {

@@ -3,18 +3,18 @@
         <div class="hero-section">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">{{ $t('home.subtitle') }}</h1>
+                    <h1 class="hero-title">{{ $t('home.title') }}</h1>
                     <p class="hero-subtitle">
                         {{ $t('home.description') }}
                     </p>
                     <div class="hero-features">
                         <div class="feature-item">
                             <div class="feature-icon">🧠</div>
-                            <div class="feature-text">{{ $t('home.features.professional.title') }}</div>
+                            <div class="feature-text">{{ $t('home.features.accurate.title') }}</div>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">⚡</div>
-                            <div class="feature-text">{{ $t('home.features.accurate.title') }}</div>
+                            <div class="feature-text">{{ $t('home.features.professional.title') }}</div>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">🎯</div>
@@ -36,33 +36,33 @@
         <div class="info-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>什么是 MBTI？</h2>
-                    <p>Myers-Briggs 类型指标是世界上最受欢迎的性格评估工具之一</p>
+                    <h2>{{ $t('home.infoSection.title') }}</h2>
+                    <p>{{ $t('home.infoSection.subtitle') }}</p>
                 </div>
 
                 <div class="grid grid-2">
                     <div class="info-card">
                         <div class="card-icon">🔍</div>
-                        <h3>深度自我认知</h3>
-                        <p>帮助您更深入地了解自己的性格特点、思维方式和行为模式，发现内在的真实自我。</p>
+                        <h3>{{ $t('home.infoSection.cards.selfAwareness.title') }}</h3>
+                        <p>{{ $t('home.infoSection.cards.selfAwareness.description') }}</p>
                     </div>
 
                     <div class="info-card">
                         <div class="card-icon">🚀</div>
-                        <h3>职业发展指导</h3>
-                        <p>基于您的性格类型，为您推荐最适合的职业方向和发展路径，助力事业成功。</p>
+                        <h3>{{ $t('home.infoSection.cards.careerGuidance.title') }}</h3>
+                        <p>{{ $t('home.infoSection.cards.careerGuidance.description') }}</p>
                     </div>
 
                     <div class="info-card">
                         <div class="card-icon">💝</div>
-                        <h3>改善人际关系</h3>
-                        <p>了解不同性格类型的特点，改善与家人、朋友、同事的关系，建立更和谐的人际网络。</p>
+                        <h3>{{ $t('home.infoSection.cards.relationships.title') }}</h3>
+                        <p>{{ $t('home.infoSection.cards.relationships.description') }}</p>
                     </div>
 
                     <div class="info-card">
                         <div class="card-icon">🎯</div>
-                        <h3>个人成长</h3>
-                        <p>认识自己的优势和待改进的地方，制定更有针对性的个人发展计划。</p>
+                        <h3>{{ $t('home.infoSection.cards.personalGrowth.title') }}</h3>
+                        <p>{{ $t('home.infoSection.cards.personalGrowth.description') }}</p>
                     </div>
                 </div>
             </div>
@@ -71,95 +71,111 @@
         <div class="types-preview">
             <div class="container">
                 <div class="section-header">
-                    <h2>16 种性格类型</h2>
-                    <p>每个人都拥有独特的性格组合，探索属于您的那一种</p>
+                    <h2>{{ $t('home.typesPreview.title') }}</h2>
+                    <p>{{ $t('home.typesPreview.subtitle') }}</p>
                 </div>
 
                 <div class="types-grid">
                     <div class="type-category">
-                        <h3 class="category-title">分析家 (NT)</h3>
+                        <h3 class="category-title">{{ $t('home.typesPreview.categories.analysts.title') }}</h3>
                         <div class="type-items">
                             <div class="type-item">
                                 <div class="type-code">INTJ</div>
-                                <div class="type-name">建筑师</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.analysts.types.intj') }}
+                                </div>
                             </div>
                             <div class="type-item">
                                 <div class="type-code">INTP</div>
-                                <div class="type-name">思想家</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.analysts.types.intp') }}
+                                </div>
                             </div>
                             <div class="type-item">
                                 <div class="type-code">ENTJ</div>
-                                <div class="type-name">指挥官</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.analysts.types.entj') }}
+                                </div>
                             </div>
                             <div class="type-item">
                                 <div class="type-code">ENTP</div>
-                                <div class="type-name">辩论家</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.analysts.types.entp') }}
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="type-category">
-                        <h3 class="category-title">外交家 (NF)</h3>
+                        <h3 class="category-title">{{ $t('home.typesPreview.categories.diplomats.title') }}</h3>
                         <div class="type-items">
                             <div class="type-item">
                                 <div class="type-code">INFJ</div>
-                                <div class="type-name">提倡者</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.diplomats.types.infj') }}
+                                </div>
                             </div>
                             <div class="type-item">
                                 <div class="type-code">INFP</div>
-                                <div class="type-name">调停者</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.diplomats.types.infp') }}
+                                </div>
                             </div>
                             <div class="type-item">
                                 <div class="type-code">ENFJ</div>
-                                <div class="type-name">主人公</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.diplomats.types.enfj') }}
+                                </div>
                             </div>
                             <div class="type-item">
                                 <div class="type-code">ENFP</div>
-                                <div class="type-name">竞选者</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.diplomats.types.enfp') }}
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="type-category">
-                        <h3 class="category-title">守护者 (SJ)</h3>
+                        <h3 class="category-title">{{ $t('home.typesPreview.categories.sentinels.title') }}</h3>
                         <div class="type-items">
                             <div class="type-item">
                                 <div class="type-code">ISTJ</div>
-                                <div class="type-name">物流师</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.sentinels.types.istj') }}
+                                </div>
                             </div>
                             <div class="type-item">
                                 <div class="type-code">ISFJ</div>
-                                <div class="type-name">守护者</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.sentinels.types.isfj') }}
+                                </div>
                             </div>
                             <div class="type-item">
                                 <div class="type-code">ESTJ</div>
-                                <div class="type-name">总经理</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.sentinels.types.estj') }}
+                                </div>
                             </div>
                             <div class="type-item">
                                 <div class="type-code">ESFJ</div>
-                                <div class="type-name">执政官</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.sentinels.types.esfj') }}
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="type-category">
-                        <h3 class="category-title">探险家 (SP)</h3>
+                        <h3 class="category-title">{{ $t('home.typesPreview.categories.explorers.title') }}</h3>
                         <div class="type-items">
                             <div class="type-item">
                                 <div class="type-code">ISTP</div>
-                                <div class="type-name">鉴赏家</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.explorers.types.istp') }}
+                                </div>
                             </div>
                             <div class="type-item">
                                 <div class="type-code">ISFP</div>
-                                <div class="type-name">探险家</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.explorers.types.isfp') }}
+                                </div>
                             </div>
                             <div class="type-item">
                                 <div class="type-code">ESTP</div>
-                                <div class="type-name">企业家</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.explorers.types.estp') }}
+                                </div>
                             </div>
                             <div class="type-item">
                                 <div class="type-code">ESFP</div>
-                                <div class="type-name">娱乐家</div>
+                                <div class="type-name">{{ $t('home.typesPreview.categories.explorers.types.esfp') }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -170,10 +186,10 @@
         <div class="cta-section">
             <div class="container">
                 <div class="cta-content">
-                    <h2>准备好了解真实的自己吗？</h2>
-                    <p>60道精心设计的问题，7点精细量表评分，一键式快速答题。只需 15-20 分钟，获得专业的性格分析报告</p>
+                    <h2>{{ $t('home.cta.title') }}</h2>
+                    <p>{{ $t('home.cta.subtitle') }}</p>
                     <router-link to="/test" class="btn btn-primary btn-large">
-                        立即开始测试
+                        {{ $t('home.cta.startButton') }}
                     </router-link>
                 </div>
             </div>

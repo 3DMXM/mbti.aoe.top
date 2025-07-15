@@ -13,7 +13,7 @@ export default defineConfig({
         port: 3000,
         open: true
     },
-    base: process.env.NODE_ENV === 'production' ? '/MBTI.aoe.top/' : '/',
+    // base: process.env.NODE_ENV === 'production' ? '/MBTI.aoe.top/' : '/',
     build: {
         outDir: 'dist',
         assetsDir: 'assets',
